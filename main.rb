@@ -11,9 +11,12 @@ def StartGame
     # 7 8 9
     # 4 5 6
     # 1 2 3
-    print "Select cell: "
-    selectedCell = gets.to_i
-    AssignCell(tableArr, 2, selectedCell)
+    9.times {|i|
+        playerNumber = i%2===0 ? playerX : playerO
+        print "Player #{playerNumber} Select cell: "
+        selectedCell = gets.to_i
+        AssignCell(tableArr, playerNumber, selectedCell)
+    }
 end
 
 StartGame()
