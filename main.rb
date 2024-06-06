@@ -13,7 +13,8 @@ def StartGame
     # 1 2 3
     9.times {|i|
         playerNumber = i%2===0 ? playerX : playerO
-        print "Player #{playerNumber} Select cell: "
+        playerSymbol = playerNumber%2 != 0 ? "X" : "O"
+        print "Player #{playerSymbol} Select cell: "
         selectedCell = gets.to_i
         AssignCell(tableArr, playerNumber, selectedCell)
     }
