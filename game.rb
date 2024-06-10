@@ -34,7 +34,7 @@ def AssignCell(table, playerNumber, cell)
         # 1 2 3
         table[2][cell-$thirdRowRange] = GetPlayerSymbol(playerNumber)
     else
-        puts "Please select cells 1 - 9."
+        puts "something went wrong"
     end
 
     GenTable(table)
@@ -89,6 +89,11 @@ def GetInput(table, annouceText)
             exit
         end
         cell = commdInput.to_i
+        if cell < 1 or cell > 9
+            puts "Please select cells 1 - 9."
+            print annouceText
+            next
+        end
         if table[0][cell-$firstRowRange] != nil or table[1][cell-$SecondRowRange] != nil or table[2][cell-$thirdRowRange]
             puts "cannot assign the cell that already assigned."
             print annouceText
