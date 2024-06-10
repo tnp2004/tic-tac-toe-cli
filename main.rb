@@ -15,12 +15,14 @@ def StartGame
     rounds.times {|i|
         playerNumber = i%2===0 ? playerX : playerO
         playerSymbol = playerNumber%2 != 0 ? "X" : "O"
-        print "Player #{playerSymbol} Select cell: "
-        selectedCell = gets.to_i
+        annouceText = "Player #{playerSymbol} Select cell: "
+        print annouceText
+        commdInput = GetInput(tableArr, annouceText)
+        selectedCell = commdInput.to_i
         AssignCell(tableArr, playerNumber, selectedCell)
         winner = IsWin(tableArr)
         if winner != nil
-            puts "Winner: #{winner}"
+            puts "The winner is player #{winner.upcase}"
             exit
         end
     }

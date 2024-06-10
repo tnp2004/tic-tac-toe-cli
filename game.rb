@@ -80,3 +80,22 @@ def IsWin(table)
     
       return nil
 end
+
+def GetInput(table, annouceText)
+    while
+        commdInput = gets.strip
+        if commdInput == "exit"
+            puts "exit game!"
+            exit
+        end
+        cell = commdInput.to_i
+        if table[0][cell-$firstRowRange] != nil or table[1][cell-$SecondRowRange] != nil or table[2][cell-$thirdRowRange]
+            puts "cannot assign the cell that already assigned."
+            print annouceText
+            next
+        end
+
+        return commdInput
+    end
+
+end
